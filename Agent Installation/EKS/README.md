@@ -11,7 +11,7 @@
     - [API Key](https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token)
     - [APP Key](https://docs.datadoghq.com/account_management/api-app-keys/#add-application-keys)
 
-- **Replace it in values-eks.yaml**
+- **Replace it in [values-eks.yaml](https://github.com/jon94/eval-dd-poc/blob/main/Agent%20Installation/EKS/values-eks.yaml)**
 
 - **Create Namespace** 
 ```
@@ -33,7 +33,7 @@ helm install datadog datadog/datadog -n datadog -f values-eks.yaml
 
 - **Check Daemonset** 
     - Should see daemonsets count match your node counts.   
-    - If it does not match, then you might have taints set on your nodes. We will then need to add tolerations in the helm values file. Refer to values-eks.yaml for more information.
+    - If it does not match, then you might have taints set on your nodes. We will then need to add tolerations in the helm values file. Refer to [values-eks.yaml](https://github.com/jon94/eval-dd-poc/blob/main/Agent%20Installation/EKS/values-eks.yaml) for more information.
 ```
 kubectl get ds -n datadog
 ```
