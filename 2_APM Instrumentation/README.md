@@ -18,4 +18,4 @@
         | NodeJS18  | admission.datadoghq.com/js-lib.version: "v5.18.0"   |
         | Python2.9 | admission.datadoghq.com/python-lib.version: "v1.20.19" |
         | Python 3> | admission.datadoghq.com/python-lib.version: "v2.9.2" |
-    - Please sound off to us if you are using uwsgi or gevent on python.
+    - **Please sound off to us if you are using uwsgi or gevent on python.**
