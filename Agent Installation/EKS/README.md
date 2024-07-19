@@ -1,3 +1,6 @@
+# Pre-req
+- [Ensure firewall is open on EKS Security Group](https://docs.datadoghq.com/containers/troubleshooting/admission-controller/?tab=helm#amazon-elastic-kubernetes-service-eks)
+
 # Installing Datadog Daemonset into EKS
 - This set up will enable the following in Datadog for EKS:
     - Enable Datadog agent to accept APM traces on port 8126
