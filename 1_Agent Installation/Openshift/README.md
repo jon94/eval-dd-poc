@@ -1,7 +1,7 @@
 # Pre-req
 - Please note that the user running the commands need to have the correct RBAC permissions for SCC creation.
-- Please whitelist [this list](https://ip-ranges.datadoghq.com/) of IP ranges.
-    - Or refer to "Network Access Requirements" tab in the shared [google sheet](https://docs.google.com/spreadsheets/d/13GJAbG8OCjhiLAjzJN0VRgj0xdnuT-Lxigg_6O9BDnM/edit?gid=110767519#gid=110767519)
+- Please whitelist accordingly the domains and ports.
+    - Refer to "Network Access Requirements" tab in the shared [google sheet](https://docs.google.com/spreadsheets/d/13GJAbG8OCjhiLAjzJN0VRgj0xdnuT-Lxigg_6O9BDnM/edit?gid=110767519#gid=110767519)
 
 # Installing Datadog Daemonset into OpenShift
 - This set up will enable the following in Datadog for OpenShift:
