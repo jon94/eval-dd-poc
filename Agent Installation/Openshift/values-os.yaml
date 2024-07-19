@@ -1,0 +1,64 @@
+datadog:
+  apiKey: <DATADOG_API_KEY>
+  appKey: <DATADOG_APP_KEY>
+  ## The name must be unique and must be dot-separated tokens with the following restrictions:
+  ## * Lowercase letters, numbers, and hyphens only.
+  ## * Must start with a letter.
+  ## * Must end with a number or a letter.
+  ## * Overall length should not be higher than 80 characters.
+  ## Compared to the rules of GKE, dots are allowed whereas they are not allowed on GKE:
+  ## https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.FIELDS.name  
+  clusterName: <CLUSTER_NAME>
+  registry: gcr.io/datadoghq
+  tags: []
+  site: datadoghq.com
+  apm:
+    portEnabled: true
+    port: 8126
+    socketEnabled: false
+  kubelet:
+    tlsVerify: false
+  logs:
+    enabled: true
+    containerCollectAll: true
+    autoMultiLineDetection: true
+  processAgent:
+    enabled: true
+    processCollection: true
+  containerImageCollection:
+    enabled: true
+  dogstatsd:
+    originDetection: true
+    useSocketVolume: false
+    useHostPort: true
+  confd: {}
+  #   redisdb.yaml: |-
+  #     init_config:
+  #     instances:
+  #       - host: "name"
+  #         port: "6379"
+  #   kong.yaml: |-
+  #     init_config:
+  #     instances:
+  #       - openmetrics_endpoint: <KONG_INSTANCE_URL>:8001/metrics
+agents:
+  podSecurity:
+    securityContextConstraints:
+      create: true
+clusterAgent:
+  podSecurity:
+    securityContextConstraints:
+      # clusterAgent.podSecurity.securityContextConstraints.create -- If true, create a SCC resource for Cluster Agent pods
+      create: true
+  admissionController:
+    configMode: "hostip"
+  confd: {}
+  #   mysql.yaml: |-
+  #     cluster_check: true
+  #     instances:
+  #       - host: <EXTERNAL_IP>
+  #         port: 3306
+  #         username: datadog
+  #         password: <YOUR_CHOSEN_PASSWORD>
+remoteConfiguration:
+  enabled: true
