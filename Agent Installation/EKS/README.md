@@ -3,7 +3,7 @@
     - Enable Datadog agent to accept APM traces on port 8126
     - log collection from containers stdout/stderr and stream it to Datadog.
     - Enable Live Process Collection in Datadog
-    
+
 <details>
 <summary>Click to toggle for steps</summary>
 
@@ -25,4 +25,16 @@ helm repo update
 helm install datadog datadog/datadog -n datadog -f values-eks.yaml
 ```
 
+</details>
+
+# Validate installation
+<details>
+<summary>Click to toggle for steps</summary>
+
+- **Check Daemonset** 
+    - Should see daemonsets count match your node counts.   
+    - If it does not match, then you might have taints set on your nodes. We will then need to add tolerations in the helm values file. Refer to values-eks.yaml for more information.
+```
+kubectl get ds -n datadog
+```
 </details>

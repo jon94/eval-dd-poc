@@ -32,3 +32,11 @@ datadog:
     enableTCPQueueLength: false
     enableOOMKill: true
     collectDNSStats: false
+# agents:
+#   # agents.tolerations -- Allow the DaemonSet to schedule on tainted nodes (requires Kubernetes >= 1.6)
+#   tolerations: []
+# clusterAgent:
+#   # clusterAgent.tolerations -- Allow the Cluster Agent Deployment to schedule on tainted nodes ((requires Kubernetes >= 1.6))
+
+#   ## Ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+#   tolerations: []
