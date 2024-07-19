@@ -15,7 +15,7 @@
     - [API Key](https://docs.datadoghq.com/account_management/api-app-keys/#add-an-api-key-or-client-token)
     - [APP Key](https://docs.datadoghq.com/account_management/api-app-keys/#add-application-keys)
 
-- **Replace it in [values-os.yaml](https://github.com/jon94/eval-dd-poc/blob/main/Agent%20Installation/Openshift/values-os.yaml)**
+- **Replace it in [values-os.yaml](https://github.com/jon94/eval-dd-poc/blob/main/1_Agent%20Installation/Openshift/values-os.yaml)**
  - Put in a clusterName according to the requirements shown in values-os.yaml
 
 - **Create Namespace** 
@@ -38,7 +38,7 @@ helm install datadog datadog/datadog -n datadog -f values-os.yaml
 
 - **Check Daemonset** 
     - Should see daemonsets count match your node counts.   
-    - If it does not match, then you might have taints set on your nodes. We will then need to add tolerations in the helm values file. Refer to [values-os.yaml](https://github.com/jon94/eval-dd-poc/blob/main/Agent%20Installation/Openshift/values-os.yaml) for more information.
+    - If it does not match, then you might have taints set on your nodes. We will then need to add tolerations in the helm values file. Refer to [values-os.yaml](https://github.com/jon94/eval-dd-poc/blob/main/1_Agent%20Installation/Openshift/values-os.yaml) for more information.
 ```
 oc get ds -n datadog
 ```
