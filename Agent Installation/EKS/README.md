@@ -37,4 +37,10 @@ helm install datadog datadog/datadog -n datadog -f values-eks.yaml
 ```
 kubectl get ds -n datadog
 ```
+- **Check mutatingwebhookconfiguration**
+    - This is required for admisson controller capability. 
+    - Refer to this [document](https://docs.datadoghq.com/containers/troubleshooting/admission-controller/?tab=helm#overview) for troubleshooting if required.
+```
+kubectl get mutatingwebhookconfiguration -n datadog
+```
 </details>
