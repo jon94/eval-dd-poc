@@ -42,6 +42,8 @@ datadog:
   #     instances:
   #       - openmetrics_endpoint: <KONG_INSTANCE_URL>:8001/metrics
 agents:
+  # image:
+  #   tagSuffix: jmx
   podSecurity:
     securityContextConstraints:
       create: true
