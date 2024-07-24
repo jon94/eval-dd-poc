@@ -66,4 +66,4 @@ clusterChecksRunner:
     ## Ex:
     ##  jmx        to enable jmx fetch collection
     ##  servercore to get Windows images based on servercore
-    tagSuffix: ""
+    tagSuffix: jmx
