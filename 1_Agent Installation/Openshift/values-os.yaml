@@ -62,5 +62,23 @@ clusterAgent:
   #         port: 3306
   #         username: datadog
   #         password: <YOUR_CHOSEN_PASSWORD>
+clusterChecksRunner:
+  # clusterChecksRunner.enabled -- If true, deploys agent dedicated for running the Cluster Checks instead of running in the Daemonset's agents.
+
+  ## If both clusterChecksRunner.enabled and datadog.kubeStateMetricsCore.enabled are true, consider enabling datadog.kubeStateMetricsCore.useClusterCheckRunners as well.
+  ## If datadog.kubeStateMetricsCore.useClusterCheckRunners is enabled, it's recommended to enable this flag as well so all Cluster Checks run on Cluster Checks Runners instead of node agents.
+  ## ref: https://docs.datadoghq.com/agent/autodiscovery/clusterchecks/
+  enabled: true
+
+  ## Define the Datadog image to work with.
+  image:
+    # clusterChecksRunner.image.name -- Datadog Agent image name to use (relative to `registry`)
+    name: agent
+    # clusterChecksRunner.image.tag -- Define the Agent version to use
+    tag: 7.55.1
+    # clusterChecksRunner.image.digest -- Define Agent image digest to use, takes precedence over tag if specified
+    digest: ""
+    # clusterChecksRunner.image.tagSuffix -- Suffix to append to Agent tag
+    tagSuffix: jmx
 remoteConfiguration:
   enabled: true
