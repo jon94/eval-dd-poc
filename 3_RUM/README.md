@@ -27,7 +27,6 @@ datadogRum.init({
   trackUserInteractions: true,
   enablePrivacyForActionName: true,
 });
-
 ```
 </details>
 
