@@ -1,5 +1,6 @@
 # Read first
-
+## Advanced Configuration
+- https://docs.datadoghq.com/real_user_monitoring/browser/advanced_configuration/?tab=npm
 ## Setup RUM via NPM
 
 https://docs.datadoghq.com/real_user_monitoring/browser/setup/#npm
@@ -30,5 +31,4 @@ datadogRum.init({
 ```
 </details>
 
-##Advanced Configuration
-- https://docs.datadoghq.com/real_user_monitoring/browser/advanced_configuration/?tab=npm
+
