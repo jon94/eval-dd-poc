@@ -17,10 +17,6 @@ datadog:
     tlsVerify: false
   clusterChecks:
     enabled: true  
-  logs:
-    enabled: true
-    containerCollectAll: true
-    containerCollectUsingFiles: true
   apm:
     portEnabled: true
     port: 8126    
