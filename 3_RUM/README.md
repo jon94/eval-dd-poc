@@ -9,6 +9,7 @@ https://docs.datadoghq.com/real_user_monitoring/browser/setup/#npm
 
 <details>
 <summary>Click to toggle for steps</summary>
+  
 ```yaml
 import { datadogRum } from '@datadog/browser-rum'
 
@@ -29,4 +30,5 @@ datadogRum.init({
   enablePrivacyForActionName: true,
 });
 ```
+
 </details>
