@@ -9,6 +9,8 @@ datadog:
   ## Compared to the rules of GKE, dots are allowed whereas they are not allowed on GKE:
   ## https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.FIELDS.name  
   clusterName: <CLUSTER_NAME>
+  clusterChecks:
+    enabled: true  
   registry: gcr.io/datadoghq
   tags: []
   site: datadoghq.com
