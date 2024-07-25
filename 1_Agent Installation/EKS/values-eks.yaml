@@ -13,6 +13,8 @@ datadog:
   ## https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.FIELDS.name  
   clusterName: <CLUSTER_NAME>
   tags: []
+  clusterChecks:
+    enabled: true  
   logs:
     enabled: true
     containerCollectAll: true
