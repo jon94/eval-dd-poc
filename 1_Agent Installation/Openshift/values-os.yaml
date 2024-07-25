@@ -20,10 +20,6 @@ datadog:
     socketEnabled: false
   kubelet:
     tlsVerify: false
-  logs:
-    enabled: true
-    containerCollectAll: true
-    autoMultiLineDetection: true
   processAgent:
     enabled: true
     processCollection: true
