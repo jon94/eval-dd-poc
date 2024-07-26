@@ -21,6 +21,12 @@ datadog:
     portEnabled: true
     port: 8126    
     socketEnabled: false
+    instrumentation:
+      enabled: true
+      enabledNamespaces:
+        - merlin-einvoice
+      libVersions:
+        python: v2.9.2   
   dogstatsd:
     port: 8125	
     useHostPort: true
