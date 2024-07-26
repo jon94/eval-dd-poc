@@ -1,0 +1,102 @@
+# targetSystem -- Target OS for this deployment (possible values: linux, windows)
+targetSystem: "linux"
+
+datadog:
+# datadog.apiKey -- Your Datadog API key
+
+  ## ref: https://app.datadoghq.com/account/settings#agent/kubernetes
+  apiKey: <insert datadog api key>
+
+  # datadog.appKey -- Datadog APP key required to use metricsProvider
+
+  ## If you are using clusterAgent.metricsProvider.enabled = true, you must set
+  ## a Datadog application key for read access to your metrics.
+  appKey: <insert datadog app key>
+
+# datadog.clusterName -- Set a unique cluster name to allow scoping hosts and Cluster Checks easily
+
+## The name must be unique and must be dot-separated tokens with the following restrictions:
+## * Lowercase letters, numbers, and hyphens only.
+## * Must start with a letter.
+## * Must end with a number or a letter.
+## * Overall length should not be higher than 80 characters.
+## Compared to the rules of GKE, dots are allowed whereas they are not allowed on GKE:
+## https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.FIELDS.name
+
+  clusterName: <insert clustername>
+
+  remoteConfiguration:
+    # datadog.remoteConfiguration.enabled -- Set to true to enable remote configuration.
+    # Consider using remoteConfiguration.enabled instead
+    enabled: true
+  apm:
+    socketEnabled: false	
+    portEnabled: true
+    port: 8126
+## Enable logs agent and provide custom configs
+  logs:
+    # datadog.logs.enabled -- Enables this to activate Datadog Agent log collection
+    ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
+    enabled: false
+
+    # datadog.logs.containerCollectAll -- Enable this to allow log collection for all containers
+
+    ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
+    containerCollectAll: false
+
+    # datadog.logs.containerCollectUsingFiles -- Collect logs from files in /var/log/pods instead of using container runtime API
+
+    ## It's usually the most efficient way of collecting logs.
+    ## ref: https://docs.datadoghq.com/agent/basic_agent_usage/kubernetes/#log-collection-setup
+    containerCollectUsingFiles: false
+
+    # datadog.logs.autoMultiLineDetection -- Allows the Agent to detect common multi-line patterns automatically.
+    ## ref: https://docs.datadoghq.com/agent/logs/advanced_log_collection/?tab=configurationfile#automatic-multi-line-aggregation
+    autoMultiLineDetection: false
+
+  containerImageCollection:
+    # datadog.containerImageCollection.enabled -- Enable collection of container image metadata
+
+    # This parameter requires Agent version 7.46+
+    enabled: true
+
+  processAgent:
+    enabled: true
+    processCollection: true  
+
+
+
+## This is the Datadog Cluster Agent implementation that handles cluster-wide
+## metrics more cleanly, separates concerns for better rbac, and implements
+## the external metrics API so you can autoscale HPAs based on datadog metrics
+## ref: https://docs.datadoghq.com/agent/kubernetes/cluster/
+clusterAgent:
+# clusterAgent.enabled -- Set this to false to disable Datadog Cluster Agent
+  enabled: true
+  replicas: 1  
+## Define the Datadog Cluster-Agent image to work with
+  image:
+    # clusterAgent.image.name -- Cluster Agent image name to use (relative to `registry`)
+    name: cluster-agent
+
+  # clusterAgent.image.tag -- Cluster Agent image tag to use
+    tag: latest
+
+agents:
+# agents.enabled -- You should keep Datadog DaemonSet enabled!
+
+## The exceptional case could be a situation when you need to run
+## single Datadog pod per every namespace, but you do not need to
+## re-create a DaemonSet for every non-default namespace install.
+## Note: StatsD and DogStatsD work over UDP, so you may not
+## get guaranteed delivery of the metrics in Datadog-per-namespace setup!
+  enabled: true
+  ## Define the Datadog image to work with
+  image:
+    # agents.image.name -- Datadog Agent image name to use (relative to `registry`)
+
+    ## use "dogstatsd" for Standalone Datadog Agent DogStatsD 7
+    name: agent
+
+    # agents.image.tag -- Define the Agent version to use
+    tag: latest
