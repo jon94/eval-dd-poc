@@ -1,5 +1,6 @@
 # Pre-req
 - [Ensure firewall is open on EKS Security Group](https://docs.datadoghq.com/containers/troubleshooting/admission-controller/?tab=helm#amazon-elastic-kubernetes-service-eks)
+- Find out which Datadog Site you are using. Add the site accordingly in the site parameter. https://docs.datadoghq.com/getting_started/site/
 
 # Installing Datadog Daemonset into EKS
 - This set up will enable the following in Datadog for EKS:
