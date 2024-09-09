@@ -24,6 +24,7 @@ datadog:
 ## https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1beta1/projects.locations.clusters#Cluster.FIELDS.name
 
   clusterName: <insert clustername>
+  site: <place the site accordingly> https://docs.datadoghq.com/getting_started/site/
 
   remoteConfiguration:
     # datadog.remoteConfiguration.enabled -- Set to true to enable remote configuration.
